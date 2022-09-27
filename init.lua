@@ -5,7 +5,7 @@ local set = vim.opt
 
 local utils = require('utils')
 
-vim.g.mapleader = '\\'
+vim.g.mapleader = ' '
 
 set.autoindent = true
 set.expandtab = true
@@ -33,7 +33,12 @@ vim.o.background = "dark"
 vim.cmd([[colorscheme gruvbox]])
 
 -- Key bindings
-utils.map('n', "<S-Tab>", ":NvimTreeToggle <CR>", { noremap = true })
+utils.map('n', "<Leader>t", ":NvimTreeToggle <CR>", { noremap = true })
+utils.map('n', "<Leader>h", ":noh<CR>", { noremap = true })
+utils.map('n', "<Leader>ff", ":Telescope find_files<CR>", { noremap = true })
+utils.map('n', "<Leader>fh", ":Telescope live_grep<CR>", { noremap = true })
+utils.map('n', "<Leader>fb", ":Telescope buffers<CR>", { noremap = true })
+utils.map('n', "<Leader>fh", ":Telescope help_tags<CR>", { noremap = true })
 
 -- lsp configuration
 -- Rust

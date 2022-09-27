@@ -1,7 +1,19 @@
 return require("packer").startup(function(use)
+    use "nvim-treesitter/nvim-treesitter"
+    use "tribela/vim-transparent"
+    require'nvim-treesitter.configs'.setup {
+        ensure_installed = { "c", "lua", "rust" },
+        sync_install = true,
+        highlight = {
+            enable = true,
+        }
+    }
     use "wbthomason/packer.nvim"
     use {
         "ellisonleao/gruvbox.nvim", as = gruvbox,
+    }
+    use {
+        "mattn/emmet-vim", as = emmet,
     }
     require("gruvbox").setup({
         undercurl = true,
@@ -9,6 +21,8 @@ return require("packer").startup(function(use)
         bold = true,
         italic = true,
         strikethrough = true,
+        contrast = "medium",
+        transparent_mode = true
     })
     use {
       'nvim-telescope/telescope.nvim', tag = '0.1.0',
